@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiple Images from Google Drive</title>
+  <script>
+    function displayImages() {
+      var img = document.getElementById('image');
+      var imageSources = [
+        'https://drive.google.com/uc?id=1zmxSujdBAtXN40j--CuwKwCWurk1M8L7',
+        'https://drive.google.com/uc?id=14eg8DR3EePE6zF4t61sUa62kixiWkbVg'
+      ]; 
+
+      var index = 0;
+
+      function changeImage() {
+        img.src = imageSources[index];
+        img.width = 400; 
+        img.height = 300; 
+        index = (index + 1) % imageSources.length;
+        setTimeout(changeImage, 3000); 
+      }
+
+      changeImage();
+      
+    }
+  </script>
+</head>
+<body onload="displayImages()">
+  <h1>Images from Google Drive</h1>
+  <img id="image" src="" alt="Image from Google Drive">
+</body>
+</html>
